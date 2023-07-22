@@ -1,10 +1,23 @@
 package main
 
 import (
+	"github.com/maztt/gopportunities/config"
 	"github.com/maztt/gopportunities/router"
 )
 
+var (
+	logger config.Logger
+)
+
 func main() {
-	// Inicializar o subpackage Router
+	logger = *config.GetLogger(("main"))
+	// Initialize Configs
+	err := config.Init()
+	if err != nil {
+		logger.Errorf("config initiatlization error: %v", err)
+		return
+	}
+
+	// Initialize Router subpackage
 	router.Initialize()
 }
