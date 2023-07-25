@@ -18,7 +18,7 @@ import (
 // @Success 200 {object} ShowOpeningResponse
 // @Failure 400 {object} ErrorResponse
 // @Failure 404 {object} ErrorResponse
-// @Router /opening [get]
+// @Router /openings [get]
 func ShowOpeningHandler(context *gin.Context) {
 	id := context.Query("id")
 	if id == "" {
